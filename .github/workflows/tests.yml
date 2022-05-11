@@ -1,0 +1,38 @@
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  push:
+    paths:
+      - '.github/workflows/tests.yml'
+      - 'Makefile'
+      - 'index.html'
+      - 'package.json'
+      - 'script.js'
+      - 'test.js'
+  pull_request:
+    paths:
+      - '.github/workflows/tests.yml'
+      - 'Makefile'
+      - 'index.html'
+      - 'package.json'
+      - 'script.js'
+      - 'test.js'
+
+jobs:
+  make:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 17
+      - name: Test
+        run: make
+      - name: git commands for artifacts/
+        run: |
+          git add artifacts/*
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git diff-index --quiet HEAD || git commit -m 'update artifacts'
+          git push

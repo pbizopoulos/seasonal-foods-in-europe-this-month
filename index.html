@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<meta content="Web application that shows fruit and vegetable that are in season for the current month and the country that the user resides in using the timezone" name="description">
+		<title>Seasonal foods</title>
+		<link href="data:," rel="icon">
+		<link href="styles.css" rel="stylesheet">
+		<script defer src="artifacts/fruit-english.js"></script>
+		<script defer src="artifacts/fruit-greek.js"></script>
+		<script defer src="artifacts/vegetable-english.js"></script>
+		<script defer src="artifacts/vegetable-greek.js"></script>
+		<script defer src="script.js"></script>
+	</head>
+	<body>
+		<div style="width:75%;float:left;">
+			<span class="key" id="seasonalFoods"></span>
+			<span id="duringSpan"></span>
+			<span class="key" id="monthCurrentValueSpan"></span>
+			<span id="atSpan"></span>
+			<span class="key" id="countryValueSpan"></span>
+			<span id="accordingToSpan"></span>
+			<a href="https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe">EUFIC</a>
+		</div>
+		<div style="width:15%;float:left;">
+			<a href="https://github.com/pbizopoulos/seasonal-foods" id="websiteRepositoryUrl"></a>
+		</div>
+		<div style="margin-left:0%;">
+			<select id="languageSelect">
+				<option value="english">English</option>
+				<option value="greek">Ελληνικά</option>
+			</select>
+		</div>
+		<hr>
+		<div>
+			<span class="key" id="fruitSpan"></span>
+			<ul id="fruitSeasonalUl"></ul>
+		</div>
+		<div>
+			<span class="key" id="vegetableSpan"></span>
+			<ul id="vegetableSeasonalUl"></ul>
+		</div>
+	</body>
+</html>

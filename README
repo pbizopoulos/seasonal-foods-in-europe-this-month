@@ -1,0 +1,17 @@
+Seasonal foods:
+- https://pbizopoulos.github.io/seasonal-foods
+
+Requirements:
+- POSIX-oriented operating system https://en.wikipedia.org/wiki/POSIX#POSIX-oriented_operating_systems
+- Git (Any version) https://git-scm.com/downloads
+- GNU Make (>= 3.79) https://www.gnu.org/software/make/
+- npm https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
+Preparation:
+git clone https://github.com/pbizopoulos/seasonal-foods
+cd seasonal-foods/
+
+Basic commands:
+make		# Generate artifacts.
+make clean 	# Remove dependent directories.
+make help	# Show all commands.
