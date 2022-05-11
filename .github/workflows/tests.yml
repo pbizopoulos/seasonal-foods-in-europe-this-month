@@ -29,10 +29,3 @@ jobs:
           node-version: 17
       - name: Test
         run: make
-      - name: git commands for artifacts/
-        run: |
-          git add artifacts/*
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          git diff-index --quiet HEAD || git commit -m 'update artifacts'
-          git push
