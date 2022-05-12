@@ -5,18 +5,16 @@ on:
     paths:
       - '.github/workflows/tests.yml'
       - 'Makefile'
-      - 'generate-artifacts.js'
-      - 'index.html'
+      - 'docs/*'
+      - 'index.js'
       - 'package.json'
-      - 'script.js'
   pull_request:
     paths:
       - '.github/workflows/tests.yml'
       - 'Makefile'
-      - 'generate-artifacts.js'
-      - 'index.html'
+      - 'docs/*'
+      - 'index.js'
       - 'package.json'
-      - 'script.js'
 
 jobs:
   make:

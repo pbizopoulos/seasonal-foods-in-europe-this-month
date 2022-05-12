@@ -3,7 +3,7 @@
 .PHONY: all clean help
 
 artifactsdir=artifacts
-codefile=generate-artifacts.js
+codefile=index.js
 
 all: $(codefile) .gitignore package-lock.json ##	Generate artifacts.
 	mkdir -p $(artifactsdir)
