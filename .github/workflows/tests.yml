@@ -26,10 +26,10 @@ jobs:
       - name: Test
         run: |
           make -C node
-          cp node/artifacts/fruit-english.js node/dist/
-          cp node/artifacts/fruit-greek.js node/dist/
-          cp node/artifacts/vegetable-english.js node/dist/
-          cp node/artifacts/vegetable-greek.js node/dist/
+          cp node/artifacts/fruit-english.js node/release/
+          cp node/artifacts/fruit-greek.js node/release/
+          cp node/artifacts/vegetable-english.js node/release/
+          cp node/artifacts/vegetable-greek.js node/release/
       - name: commit changes
         run: |
           git add .
