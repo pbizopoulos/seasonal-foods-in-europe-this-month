@@ -12,6 +12,6 @@ git clone https://github.com/pbizopoulos/seasonal-foods
 cd seasonal-foods/
 
 Basic commands:
-make		# Generate artifacts.
-make clean 	# Remove dependent directories.
-make help	# Show all commands.
+make -C node/	 	# Generate artifacts.
+make -C node/ clean 	# Remove dependent directories.
+make -C node/ help	# Show all commands.

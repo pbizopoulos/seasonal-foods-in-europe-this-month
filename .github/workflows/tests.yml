@@ -4,17 +4,15 @@ on:
   push:
     paths:
       - '.github/workflows/tests.yml'
-      - 'Makefile'
-      - 'docs/*'
-      - 'index.js'
-      - 'package.json'
+      - 'index.html'
+      - 'node/*'
+      - 'script.js'
   pull_request:
     paths:
       - '.github/workflows/tests.yml'
-      - 'Makefile'
-      - 'docs/*'
-      - 'index.js'
-      - 'package.json'
+      - 'index.html'
+      - 'node/*'
+      - 'script.js'
 
 jobs:
   make:
@@ -26,11 +24,16 @@ jobs:
         with:
           node-version: 17
       - name: Test
-        run: make
-      - name: git commands for docs/index.html
         run: |
-          git add docs/index.html
+          make -C node
+          cp node/artifacts/fruit-english.js node/dist/
+          cp node/artifacts/fruit-greek.js node/dist/
+          cp node/artifacts/vegetable-english.js node/dist/
+          cp node/artifacts/vegetable-greek.js node/dist/
+      - name: commit changes
+        run: |
+          git add .
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git diff-index --quiet HEAD || git commit -m 'update index.html'
+          git diff-index --quiet HEAD || git commit -m 'commit from github action'
           git push
