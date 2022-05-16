@@ -1,17 +1,17 @@
 'use strict';
 
-const accordingToSpan = document.getElementById('accordingToSpan');
-const atSpan = document.getElementById('atSpan');
+const countrySpan = document.getElementById('countrySpan');
 const countryValueSpan = document.getElementById('countryValueSpan');
 const dateCurrent = new Date();
-const duringSpan = document.getElementById('duringSpan');
 const fruitSeasonalUl = document.getElementById('fruitSeasonalUl');
 const fruitSpan = document.getElementById('fruitSpan');
 const homePageUrl = document.getElementById('homePageUrl');
 const languageSelect = document.getElementById('languageSelect');
+const languageSpan = document.getElementById('languageSpan');
 const monthArray = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 const monthCurrentValueSpan = document.getElementById('monthCurrentValueSpan');
 const monthGreekArray = ['ιανουάριος', 'φεβρουάριος', 'μάρτιος', 'απρίλιος', 'μάϊος', 'ιούνιος', 'ιούλιος', 'αύγουστος', 'σεπτέμβριος', 'οκτώβριος', 'νοέμβριος', 'δεκέμβριος'];
+const monthSpan = document.getElementById('monthSpan');
 const seasonalFoods = document.getElementById('seasonalFoods');
 const sourceCodeUrl = document.getElementById('sourceCodeUrl');
 const vegetableSeasonalUl = document.getElementById('vegetableSeasonalUl');
@@ -98,26 +98,26 @@ languageSelect.onchange = function() {
 	if (this.value === 'greek') {
 		fruitObject = JSON.parse(fruitGreekJsonString);
 		vegetableObject = JSON.parse(vegetableGreekJsonString);
-		accordingToSpan.textContent = 'σύμφωνα με το';
-		atSpan.textContent = 'στην';
+		countrySpan.textContent = 'Χώρα';
 		countryValueSpan.textContent = capitalizeFirstLetter(countryEnglishToGreekObject[countryCurrent]);
-		duringSpan.textContent = 'τον';
 		fruitSpan.textContent = 'Φρούτα';
 		homePageUrl.textContent = 'Αρχική σελίδα';
-		monthCurrentValueSpan.textContent = capitalizeFirstLetter(monthGreekArray[dateCurrent.getMonth()].slice(0, -1));
+		languageSpan.textContent = 'Γλώσσα';
+		monthCurrentValueSpan.textContent = capitalizeFirstLetter(monthGreekArray[dateCurrent.getMonth()]);
+		monthSpan.textContent = 'Μήνας';
 		seasonalFoods.textContent = 'Εποχιακά τρόφιμα';
 		sourceCodeUrl.textContent = 'Πηγαίος κώδικας';
 		vegetableSpan.textContent = 'Λαχανικά';
 	} else {
 		fruitObject = JSON.parse(fruitJsonString);
 		vegetableObject = JSON.parse(vegetableJsonString);
-		accordingToSpan.textContent = 'according to';
-		atSpan.textContent = 'at';
+		countrySpan.textContent = 'Country';
 		countryValueSpan.textContent = capitalizeFirstLetter(countryCurrent);
-		duringSpan.textContent = 'during';
 		fruitSpan.textContent = 'Fruits';
 		homePageUrl.textContent = 'Home page';
+		languageSpan.textContent = 'Language';
 		monthCurrentValueSpan.textContent = capitalizeFirstLetter(monthArray[dateCurrent.getMonth()]);
+		monthSpan.textContent = 'Month';
 		seasonalFoods.textContent = 'Seasonal foods';
 		sourceCodeUrl.textContent = 'Source code';
 		vegetableSpan.textContent = 'Vegetables';
