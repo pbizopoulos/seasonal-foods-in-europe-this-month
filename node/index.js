@@ -70,6 +70,10 @@ const puppeteer = require('puppeteer');
 		await fs.unlinkSync(`${artifactsDir}/vegetable-greek.js`);
 	}
 	fs.writeFileSync(`${artifactsDir}/vegetable-greek.js`, `const vegetableGreekJsonString = \'${vegetableGreekString}\';`);
+	fs.renameSync(`${artifactsDir}/fruit-english.js`, 'release/fruit-english.js');
+	fs.renameSync(`${artifactsDir}/fruit-greek.js`, 'release/fruit-greek.js');
+	fs.renameSync(`${artifactsDir}/vegetable-english.js`, 'release/vegetable-english.js');
+	fs.renameSync(`${artifactsDir}/vegetable-greek.js`, 'release/vegetable-greek.js');
 	await page.close();
 	await browser.close();
 })();
