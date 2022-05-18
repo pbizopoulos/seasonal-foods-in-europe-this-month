@@ -1,18 +1,4 @@
-on:
-  schedule:
-    - cron: '0 0 1 * *'
-  push:
-    paths:
-      - '.github/workflows/tests.yml'
-      - 'index.html'
-      - 'node/*'
-      - 'script.js'
-  pull_request:
-    paths:
-      - '.github/workflows/tests.yml'
-      - 'index.html'
-      - 'node/*'
-      - 'script.js'
+on: [push, pull_request]
 
 jobs:
   make:
@@ -24,12 +10,7 @@ jobs:
         with:
           node-version: 17
       - name: Test
-        run: |
-          make -C node
-          cp node/artifacts/fruit-english.js node/release/
-          cp node/artifacts/fruit-greek.js node/release/
-          cp node/artifacts/vegetable-english.js node/release/
-          cp node/artifacts/vegetable-greek.js node/release/
+        run: make -C node/
       - name: commit changes
         run: |
           git add .
