@@ -2,9 +2,9 @@ Seasonal foods:
 - https://pbizopoulos.github.io/seasonal-foods
 
 Requirements:
-- POSIX-oriented operating system
+- POSIX compliant shell (ash, bash, dash, ksh, posh, yash or zsh)
 - Git (Any version)
-- GNU Make (>= 3.79)
+- Make (bmake or GNU Make)
 - npm
 
 Preparation:
