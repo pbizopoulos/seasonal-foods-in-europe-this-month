@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
 	const browser = await puppeteer.launch({ headless: true, devtools: false });
 	const page = await browser.newPage();
 	const artifactsDir = process.env.ARTIFACTS_DIR;
-	await page._client.send('Page.setDownloadBehavior', {behavior: 'allow', downloadPath: path.resolve(artifactsDir)});
+	await page._client().send('Page.setDownloadBehavior', {behavior: 'allow', downloadPath: path.resolve(artifactsDir)});
 	await page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe');
 	let [fruitString, vegetableString] = await page.evaluate(() => {
 		let fruitNodeList = Fruit.childNodes[1].childNodes;
