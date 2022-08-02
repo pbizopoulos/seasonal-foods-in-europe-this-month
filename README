@@ -1,0 +1,17 @@
+Seasonal foods:
+- https://pbizopoulos.github.io/seasonal-foods
+
+Requirements:
+- POSIX compliant shell (ash, bash, dash, ksh, posh, yash or zsh)
+- Git (Any version)
+- Make (bmake or GNU Make)
+- npm
+
+Preparation:
+git clone https://github.com/pbizopoulos/seasonal-foods
+cd seasonal-foods/
+
+Basic commands:
+make -C node/	 	# Generate artifacts.
+make -C node/ clean 	# Remove dependent directories.
+make -C node/ help	# Show all commands.
