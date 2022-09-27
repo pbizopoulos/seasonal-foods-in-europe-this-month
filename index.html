@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<title>Seasonal foods in Europe</title>
+		<link href="data:," rel="icon">
+		<link href="https://pbizopoulos.github.io/style.css" rel="stylesheet">
+		<script defer src="node/release/fruit-english.js"></script>
+		<script defer src="node/release/fruit-greek.js"></script>
+		<script defer src="node/release/vegetable-english.js"></script>
+		<script defer src="node/release/vegetable-greek.js"></script>
+		<script defer src="script.js"></script>
+	</head>
+	<body>
+		<div id="div-header">
+			<div id="div-navigation">
+                               <a href="https://pbizopoulos.github.io" id="homePageUrl"></a> / <b><span id="seasonalFoodsInEurope"></span></b>
+				<a href="https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe">EUFIC</a>
+			</div>
+			<div id="div-source-code-link">
+				<a href="https://github.com/pbizopoulos/seasonal-foods-in-europe" id="sourceCodeUrl"></a>
+			</div>
+		</div>
+		<div>
+			<span id="languageSpan"></span>: <select id="languageSelect">
+				<option value="english">English</option>
+				<option value="greek">Ελληνικά</option>
+			</select>
+		</div>
+		<div>
+			<span id="countrySpan"></span>: <span id="countryValueSpan"></span>
+		</div>
+		<div>
+			<span id="monthSpan"></span>: <span id="monthCurrentValueSpan"></span>
+		</div>
+		<div>
+			<span id="fruitSpan"></span>:
+			<ul id="fruitSeasonalUl"></ul>
+		</div>
+		<div>
+			<span id="vegetableSpan"></span>:
+			<ul id="vegetableSeasonalUl"></ul>
+		</div>
+	</body>
+</html>
