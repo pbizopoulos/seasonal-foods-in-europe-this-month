@@ -10,7 +10,6 @@ npm
 git clone https://github.com/pbizopoulos/seasonal-foods-in-europe
 cd seasonal-foods-in-europe/
 
-# Basic commands
-make -C node/	 	# Generate artifacts.
-make -C node/ clean 	# Remove dependent directories.
-make -C node/ help	# Show all commands.
+# Usage
+make -C node/ help	# Show help for node.
+make help		# Show help for html.
