@@ -4,6 +4,7 @@ https://pbizopoulos.github.io/seasonal-foods-in-europe
 # Requirements
 POSIX mandatory utilities
 Make
+Docker
 npm
 
 # Preparation
@@ -11,5 +12,5 @@ git clone https://github.com/pbizopoulos/seasonal-foods-in-europe
 cd seasonal-foods-in-europe/
 
 # Usage
-make -C node/ help	# Show help for node.
 make help		# Show help for html.
+make help -C node/ 	# Show help for node.
