@@ -136,6 +136,6 @@ languageSelect.onchange = function() {
 		vegetableSeasonalUl.appendChild(li);
 		li.textContent += item;
 	});
-}
+};
 
 languageSelect.onchange();
