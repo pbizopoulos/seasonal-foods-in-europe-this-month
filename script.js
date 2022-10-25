@@ -1,21 +1,21 @@
 'use strict';
 
-const countrySpan = document.getElementById('countrySpan');
-const countryValueSpan = document.getElementById('countryValueSpan');
+const countrySpan = document.getElementById('country-span');
+const countryValueSpan = document.getElementById('country-value-span');
 const dateCurrent = new Date();
-const fruitSeasonalUl = document.getElementById('fruitSeasonalUl');
-const fruitSpan = document.getElementById('fruitSpan');
-const homePageUrl = document.getElementById('homePageUrl');
-const languageSelect = document.getElementById('languageSelect');
-const languageSpan = document.getElementById('languageSpan');
+const fruitSeasonalUl = document.getElementById('fruit-seasonal-ul');
+const fruitSpan = document.getElementById('fruit-span');
+const homePageUrl = document.getElementById('home-page-url');
+const languageSelect = document.getElementById('language-select');
+const languageSpan = document.getElementById('language-span');
 const monthArray = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-const monthCurrentValueSpan = document.getElementById('monthCurrentValueSpan');
+const monthCurrentValueSpan = document.getElementById('month-current-value-span');
 const monthGreekArray = ['ιανουάριος', 'φεβρουάριος', 'μάρτιος', 'απρίλιος', 'μάϊος', 'ιούνιος', 'ιούλιος', 'αύγουστος', 'σεπτέμβριος', 'οκτώβριος', 'νοέμβριος', 'δεκέμβριος'];
-const monthSpan = document.getElementById('monthSpan');
-const seasonalFoodsInEurope = document.getElementById('seasonalFoodsInEurope');
-const sourceCodeUrl = document.getElementById('sourceCodeUrl');
-const vegetableSeasonalUl = document.getElementById('vegetableSeasonalUl');
-const vegetableSpan = document.getElementById('vegetableSpan');
+const monthSpan = document.getElementById('month-span');
+const seasonalFoodsInEurope = document.getElementById('seasonal-foods-in-europe');
+const sourceCodeUrl = document.getElementById('source-code-url');
+const vegetableSeasonalUl = document.getElementById('vegetable-seasonal-ul');
+const vegetableSpan = document.getElementById('vegetable-span');
 
 const monthCurrent = monthArray[dateCurrent.getMonth()];
 
