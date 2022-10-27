@@ -12,4 +12,4 @@ cd seasonal-foods-in-europe/
 
 # Usage
 make help		# Show help for html.
-make help -C node/ 	# Show help for node.
+make -C node/ help 	# Show help for node.
