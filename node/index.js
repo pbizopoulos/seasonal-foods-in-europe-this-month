@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
 
 
 (async () => {
-	const browser = await puppeteer.launch({ headless: true, devtools: false });
+	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 	page.on('pageerror', pageerr => {
 		assert.fail(pageerr);
