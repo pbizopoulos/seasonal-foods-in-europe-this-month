@@ -1,5 +1,4 @@
 'use strict';
-
 const countrySpan = document.getElementById('country-span');
 const countryValueSpan = document.getElementById('country-value-span');
 const dateCurrent = new Date();
@@ -16,9 +15,7 @@ const seasonalFoodsInEurope = document.getElementById('seasonal-foods-in-europe'
 const sourceCodeUrl = document.getElementById('source-code-url');
 const vegetableSeasonalUl = document.getElementById('vegetable-seasonal-ul');
 const vegetableSpan = document.getElementById('vegetable-span');
-
 const monthCurrent = monthArray[dateCurrent.getMonth()];
-
 const countryEnglishToGreekObject = {
 	'austria': 'Αυστρία',
 	'belgium': 'Βέλγιο',
@@ -45,8 +42,8 @@ const countryEnglishToGreekObject = {
 	'sweden': 'Σουηδία',
 	'turkey': 'Τουρκία',
 	'netherlands': 'Ολλανδία',
-	'unitedkingdom': 'Ηνωμένο Βασίλειο'};
-
+	'unitedkingdom': 'Ηνωμένο Βασίλειο'
+};
 const timeZoneToCountryObject = {
 	'Europe/Vienna': 'austria',
 	'Europe/Brussels': 'belgium',
@@ -73,15 +70,13 @@ const timeZoneToCountryObject = {
 	'Europe/Stockholm': 'sweden',
 	'Europe/Ankara': 'turkey',
 	'Europe/Amsterdam': 'netherlands',
-	'Europe/London': 'unitedkingdom'};
-
+	'Europe/London': 'unitedkingdom'
+};
 let timeZoneCurrent = Intl.DateTimeFormat().resolvedOptions().timeZone;
 if (timeZoneToCountryObject[timeZoneCurrent] === undefined) {
 	timeZoneCurrent = 'Europe/London';
 }
-
 const countryCurrent = timeZoneToCountryObject[timeZoneCurrent];
-
 if (countryCurrent === 'greece') {
 	languageSelect.value = 'greek';
 } else {
@@ -91,7 +86,6 @@ if (countryCurrent === 'greece') {
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
 languageSelect.onchange = function() {
 	let fruitObject;
 	let vegetableObject;
@@ -125,17 +119,16 @@ languageSelect.onchange = function() {
 	const fruitSeasonal = fruitObject[`${monthCurrent}-${countryCurrent}`];
 	const vegetableSeasonal = vegetableObject[`${monthCurrent}-${countryCurrent}`];
 	fruitSeasonalUl.innerHTML = '';
-	fruitSeasonal.forEach(function (item) {
+	fruitSeasonal.forEach(function(item) {
 		let li = document.createElement('li');
 		fruitSeasonalUl.appendChild(li);
 		li.textContent += item;
 	});
 	vegetableSeasonalUl.innerHTML = '';
-	vegetableSeasonal.forEach(function (item) {
+	vegetableSeasonal.forEach(function(item) {
 		let li = document.createElement('li');
 		vegetableSeasonalUl.appendChild(li);
 		li.textContent += item;
 	});
 };
-
 languageSelect.onchange();

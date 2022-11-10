@@ -1,18 +1,18 @@
 'use strict';
-
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
-
-
 (async () => {
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 	page.on('pageerror', pageerr => {
 		assert.fail(pageerr);
 	});
-	await page._client().send('Page.setDownloadBehavior', {behavior: 'allow', downloadPath: path.resolve('bin')});
+	await page._client().send('Page.setDownloadBehavior', {
+		behavior: 'allow',
+		downloadPath: path.resolve('bin')
+	});
 	await page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe');
 	let [fruitString, vegetableString] = await page.evaluate(() => {
 		const Fruit = document.getElementById('Fruit');
