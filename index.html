@@ -6,34 +6,22 @@
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<title>Seasonal foods in Europe</title>
 		<link href="data:," rel="icon">
-		<script defer src="node/dist/fruit-english.js"></script>
-		<script defer src="node/dist/fruit-greek.js"></script>
-		<script defer src="node/dist/vegetable-english.js"></script>
-		<script defer src="node/dist/vegetable-greek.js"></script>
+		<script defer src="python/dist/month-country-to-fruit.json"></script>
+		<script defer src="python/dist/month-country-to-vegetable.json"></script>
 		<script defer src="script.js"></script>
 	</head>
 
 	<body>
 		<nav>
-			<a href="https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe">EUFIC</a> | <a href="https://github.com/pbizopoulos/seasonal-foods-in-europe" id="source-code-url">Source code</a> | <a href="https://pbizopoulos.github.io" id="home-page-url">Home page</a> / <b><span id="seasonal-foods-in-europe">Seasonal foods in Europe</span></b>
+			<a href="https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe">EUFIC</a> | <a href="https://github.com/pbizopoulos/seasonal-foods-in-europe">Source code</a> | <a href="https://pbizopoulos.github.io">Home page</a> / <b>Seasonal foods in Europe</b>
 		</nav>
-		<div>
-			<span id="language-span"></span>: <select id="language-select">
-				<option value="english">English</option>
-				<option value="greek">Ελληνικά</option>
-			</select>
+		<div> Country: <span id="country-value-span"></span>
 		</div>
-		<div>
-			<span id="country-span"></span>: <span id="country-value-span"></span>
+		<div> Month: <span id="month-current-value-span"></span>
 		</div>
-		<div>
-			<span id="month-span"></span>: <span id="month-current-value-span"></span>
+		<div> Fruits: <ul id="fruit-seasonal-ul"></ul>
 		</div>
-		<div>
-			<span id="fruit-span"></span>: <ul id="fruit-seasonal-ul"></ul>
-		</div>
-		<div>
-			<span id="vegetable-span"></span>: <ul id="vegetable-seasonal-ul"></ul>
+		<div> Vegetables: <ul id="vegetable-seasonal-ul"></ul>
 		</div>
 	</body>
 
