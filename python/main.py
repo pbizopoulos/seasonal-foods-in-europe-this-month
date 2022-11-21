@@ -7,9 +7,6 @@ def main():
         browser = playwright.chromium.launch()
         page = browser.new_page()
         page.on('pageerror', lambda exception: (_ for _ in ()).throw(Exception(f'uncaught exception: {exception}')))
-        timeout = 100000
-        page.set_default_navigation_timeout(timeout)
-        page.set_default_timeout(timeout)
         page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe')
         fruit_child_list = page.query_selector('#Fruit > .fvgrid').query_selector_all('xpath=child::*')
         fruit_to_month_country_dict = dict()
