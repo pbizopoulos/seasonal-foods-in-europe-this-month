@@ -1,0 +1,13 @@
+# Seasonal foods in Europe
+https://pbizopoulos.github.io/seasonal-foods-in-europe
+
+# Requirements
+POSIX mandatory utilities
+Make
+Docker
+
+# Check code and build
+git clone https://github.com/pbizopoulos/seasonal-foods-in-europe
+cd seasonal-foods-in-europe/
+cd python/ && make check all && cd ..
+make check all
