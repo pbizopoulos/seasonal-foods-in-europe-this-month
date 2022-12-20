@@ -32,7 +32,7 @@ const timeZoneToCountryObject = {
 	'Europe/Valleta': 'malta',
 	'Europe/Vienna': 'austria',
 	'Europe/Vilnius': 'lithuania',
-	'Europe/Warsaw': 'poland'
+	'Europe/Warsaw': 'poland',
 };
 
 function capitalizeFirstLetter(string) {
@@ -49,13 +49,13 @@ monthCurrentValueSpan.textContent = capitalizeFirstLetter(monthArray[dateCurrent
 const fruitArray = monthCountryToFruitArrayObject[`${monthCurrent}-${countryCurrent}`];
 const vegetableArray = monthCountryToVegetableArrayObject[`${monthCurrent}-${countryCurrent}`];
 fruitUl.innerHTML = '';
-fruitArray.forEach(function(item) {
+fruitArray.forEach(function (item) {
 	let fruitLi = document.createElement('li');
 	fruitUl.appendChild(fruitLi);
 	fruitLi.textContent += item;
 });
 vegetableUl.innerHTML = '';
-vegetableArray.forEach(function(item) {
+vegetableArray.forEach(function (item) {
 	let vegetableLi = document.createElement('li');
 	vegetableUl.appendChild(vegetableLi);
 	vegetableLi.textContent += item;
