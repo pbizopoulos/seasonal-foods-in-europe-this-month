@@ -6,7 +6,7 @@ POSIX Utilities
 Git
 Docker
 
-# Check and build code
+# Download, check and build
 git clone https://github.com/pbizopoulos/seasonal-foods-in-europe
 cd seasonal-foods-in-europe/
 cd python/ && make check all && cd ..
