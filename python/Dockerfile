@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright/python:v1.29.1-focal
+FROM mcr.microsoft.com/playwright/python:v1.30.0-focal
 ENV PIP_NO_CACHE_DIR=1
 WORKDIR /work
 COPY pyproject.toml .
