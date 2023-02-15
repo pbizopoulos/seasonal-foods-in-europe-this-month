@@ -1,6 +1,6 @@
 from hashlib import sha256
 from json import dumps
-from os.path import join
+from pathlib import Path
 
 from playwright.sync_api import Page, sync_playwright
 
@@ -27,13 +27,13 @@ def main() -> None:
         page.on('pageerror', lambda exception: (_ for _ in ()).throw(Exception(f'uncaught exception: {exception}')))
         page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe')
         month_country_to_fruits = get_month_country_to_food(page, '#Fruit > .fvgrid')
-        assert sha256(month_country_to_fruits.encode('utf-8')).hexdigest() == '044e94349d8dce547caee155a1e9e93158321a78dcb8252daa1beba3e9ae9920'
-        with open(join('dist', 'month-country-to-fruits.json'), 'w', encoding='utf-8') as file:
+        with Path('dist/month-country-to-fruits.json').open('w', encoding='utf-8') as file:
             file.write(f'const monthCountryToFruitArrayObject = {month_country_to_fruits};')
+        assert sha256(month_country_to_fruits.encode('utf-8')).hexdigest() == '044e94349d8dce547caee155a1e9e93158321a78dcb8252daa1beba3e9ae9920'
         month_country_to_vegetables = get_month_country_to_food(page, '#Vegetable > .fvgrid')
-        assert sha256(month_country_to_vegetables.encode('utf-8')).hexdigest() == '47c61adc33f3f33e51805930433759110d67327eb414b003da35ac8331255dcb'
-        with open(join('dist', 'month-country-to-vegetables.json'), 'w', encoding='utf-8') as file:
+        with Path('dist/month-country-to-vegetables.json').open('w', encoding='utf-8') as file:
             file.write(f'const monthCountryToVegetableArrayObject = {month_country_to_vegetables};')
+        assert sha256(month_country_to_vegetables.encode('utf-8')).hexdigest() == '47c61adc33f3f33e51805930433759110d67327eb414b003da35ac8331255dcb'
         browser.close()
 
 
