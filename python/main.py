@@ -1,40 +1,39 @@
-import json
+from hashlib import sha256
+from json import dumps
+from os.path import join
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import Page, sync_playwright
 
 
-def main():
+def get_month_country_to_food(page: Page, selector: str) -> str:
+    food_children = page.query_selector(selector).query_selector_all('xpath=child::*') # type: ignore[union-attr]
+    food_to_month_country = {}
+    for food_child in food_children:
+        food = food_child.query_selector('strong').inner_text().replace(' ', '-').replace('(', '').replace(')', '') # type: ignore[union-attr]
+        food_children_string = food_child.get_attribute('class')
+        if food_children_string:
+            months_countries = food_children_string.split()
+            food_to_month_country[food] = [month_country for month_country in months_countries if '-' in month_country]
+    month_country_to_foods: dict = {}
+    for food in food_to_month_country:
+        for month_country in food_to_month_country[food]:
+            month_country_to_foods.setdefault(month_country, []).append(food)
+    return dumps(month_country_to_foods, sort_keys=True)
+
+def main() -> None:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         page = browser.new_page()
         page.on('pageerror', lambda exception: (_ for _ in ()).throw(Exception(f'uncaught exception: {exception}')))
         page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe')
-        fruit_child_list = page.query_selector('#Fruit > .fvgrid').query_selector_all('xpath=child::*')
-        fruit_to_month_country_dict = {}
-        for fruit_child in fruit_child_list:
-            fruit = fruit_child.query_selector('strong').inner_text().replace(' ', '-').replace('(', '').replace(')', '')
-            if fruit_child.get_attribute('class'):
-                month_country_list = fruit_child.get_attribute('class').split()
-                fruit_to_month_country_dict[fruit] = [month_country for month_country in month_country_list if '-' in month_country]
-        month_country_to_fruit_array_dict = {}
-        for fruit in fruit_to_month_country_dict:
-            for month_country in fruit_to_month_country_dict[fruit]:
-                month_country_to_fruit_array_dict.setdefault(month_country, []).append(fruit)
-        with open('dist/month-country-to-fruit-array.json', 'w', encoding='utf-8') as file:
-            file.write(f'const monthCountryToFruitArrayObject = {json.dumps(month_country_to_fruit_array_dict)};')
-        vegetable_child_list = page.query_selector('#Vegetable > .fvgrid').query_selector_all('xpath=child::*')
-        vegetable_to_month_country_dict = {}
-        for vegetable_child in vegetable_child_list:
-            vegetable = vegetable_child.query_selector('strong').inner_text().replace(' ', '-').replace('(', '').replace(')', '')
-            if vegetable_child.get_attribute('class'):
-                month_country_list = vegetable_child.get_attribute('class').split()
-                vegetable_to_month_country_dict[vegetable] = [month_country for month_country in month_country_list if '-' in month_country]
-        month_country_to_vegetable_array_dict = {}
-        for vegetable in vegetable_to_month_country_dict:
-            for month_country in vegetable_to_month_country_dict[vegetable]:
-                month_country_to_vegetable_array_dict.setdefault(month_country, []).append(vegetable)
-        with open('dist/month-country-to-vegetable-array.json', 'w', encoding='utf-8') as file:
-            file.write(f'const monthCountryToVegetableArrayObject = {json.dumps(month_country_to_vegetable_array_dict)};')
+        month_country_to_fruits = get_month_country_to_food(page, '#Fruit > .fvgrid')
+        assert sha256(month_country_to_fruits.encode('utf-8')).hexdigest() == '044e94349d8dce547caee155a1e9e93158321a78dcb8252daa1beba3e9ae9920'
+        with open(join('dist', 'month-country-to-fruits.json'), 'w', encoding='utf-8') as file:
+            file.write(f'const monthCountryToFruitArrayObject = {month_country_to_fruits};')
+        month_country_to_vegetables = get_month_country_to_food(page, '#Vegetable > .fvgrid')
+        assert sha256(month_country_to_vegetables.encode('utf-8')).hexdigest() == '47c61adc33f3f33e51805930433759110d67327eb414b003da35ac8331255dcb'
+        with open(join('dist', 'month-country-to-vegetables.json'), 'w', encoding='utf-8') as file:
+            file.write(f'const monthCountryToVegetableArrayObject = {month_country_to_vegetables};')
         browser.close()
 
 
