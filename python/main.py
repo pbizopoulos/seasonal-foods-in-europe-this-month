@@ -14,7 +14,7 @@ def get_month_country_to_food(page: Page, selector: str) -> str:
         if food_children_string:
             months_countries = food_children_string.split()
             food_to_month_country[food] = [month_country for month_country in months_countries if '-' in month_country]
-    month_country_to_foods: dict = {}
+    month_country_to_foods: dict = {} # type: ignore[type-arg]
     for food in food_to_month_country:
         for month_country in food_to_month_country[food]:
             month_country_to_foods.setdefault(month_country, []).append(food)
@@ -24,7 +24,7 @@ def main() -> None:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         page = browser.new_page()
-        page.on('pageerror', lambda exception: (_ for _ in ()).throw(Exception(f'uncaught exception: {exception}')))
+        page.on('pageerror', lambda exception: (_ for _ in ()).throw(Exception(f'uncaught exception: {exception}'))) # type: ignore[call-overload]
         page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe')
         month_country_to_fruits = get_month_country_to_food(page, '#Fruit > .fvgrid')
         with Path('dist/month-country-to-fruits.json').open('w', encoding='utf-8') as file:
