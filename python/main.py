@@ -24,7 +24,7 @@ def main() -> None:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         page = browser.new_page()
-        page.on('pageerror', lambda exception: (_ for _ in ()).throw(Exception(f'uncaught exception: {exception}'))) # type: ignore[call-overload]
+        page.on('pageerror', lambda exception: print(f'uncaught exception: {exception}')) # noqa: 201
         page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe')
         month_country_to_fruits = get_month_country_to_food(page, '#Fruit > .fvgrid')
         with Path('dist/month-country-to-fruits.json').open('w', encoding='utf-8') as file:
