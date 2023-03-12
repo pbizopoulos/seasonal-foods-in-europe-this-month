@@ -2,7 +2,7 @@ from hashlib import sha256
 from json import dumps
 from pathlib import Path
 
-from playwright.sync_api import Page, sync_playwright
+from playwright.sync_api import Error, Page, sync_playwright
 
 
 def get_month_country_to_food(page: Page, selector: str) -> str:
@@ -24,7 +24,7 @@ def main() -> None:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         page = browser.new_page()
-        page.on('pageerror', lambda exception: print(f'uncaught exception: {exception}')) # noqa: 201
+        page.on('pageerror', page_error)
         page.goto('https://www.eufic.org/en/explore-seasonal-fruit-and-vegetables-in-europe')
         month_country_to_fruits = get_month_country_to_food(page, '#Fruit > .fvgrid')
         with Path('dist/month-country-to-fruits.json').open('w', encoding='utf-8') as file:
@@ -35,6 +35,10 @@ def main() -> None:
             file.write(f'const monthCountryToVegetableArrayObject = {month_country_to_vegetables};')
         assert sha256(month_country_to_vegetables.encode('utf-8')).hexdigest() == '47c61adc33f3f33e51805930433759110d67327eb414b003da35ac8331255dcb'
         browser.close()
+
+
+def page_error(exception: Error) -> None:
+    raise exception
 
 
 if __name__ == '__main__':
