@@ -9,5 +9,4 @@ Docker
 # Download, check and build
 git clone https://github.com/pbizopoulos/seasonal-foods-in-europe
 cd seasonal-foods-in-europe/
-cd python/ && make clean check all && cd ..
 make clean check all
