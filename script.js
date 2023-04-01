@@ -47,7 +47,7 @@
 	for (const fruit in fvlist["Fruit"]) {
 		for (const [month, country] of fvlist["Fruit"][fruit]) {
 			if (month === monthCurrent && country === countryCurrent) {
-				let fruitLi = document.createElement("li");
+				const fruitLi = document.createElement("li");
 				fruitUl.appendChild(fruitLi);
 				fruitLi.textContent += fruit;
 			}
@@ -57,7 +57,7 @@
 	for (const vegetable in fvlist["Vegetable"]) {
 		for (const [month, country] of fvlist["Vegetable"][vegetable]) {
 			if (month === monthCurrent && country === countryCurrent) {
-				let vegetableLi = document.createElement("li");
+				const vegetableLi = document.createElement("li");
 				vegetableUl.appendChild(vegetableLi);
 				vegetableLi.textContent += vegetable;
 			}
