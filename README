@@ -1,5 +1,5 @@
 # Seasonal foods in Europe
-https://pbizopoulos.github.io/seasonal-foods-in-europe
+https://pbizopoulos.github.io/seasonal-foods-in-europe-this-month
 
 # Requirements
 POSIX Utilities
@@ -7,6 +7,6 @@ Git
 Docker
 
 # Download, check and build
-git clone https://github.com/pbizopoulos/seasonal-foods-in-europe
-cd seasonal-foods-in-europe/
+git clone https://github.com/pbizopoulos/seasonal-foods-in-europe-this-month
+cd seasonal-foods-in-europe-this-month/
 cd docs/ && make clean check all && cd ..
