@@ -3,8 +3,23 @@
 	const countryValueSpan = document.getElementById("country-value-span");
 	const dateCurrent = new Date();
 	const fruitUl = document.getElementById("fruit-ul");
-	const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	const monthCurrentValueSpan = document.getElementById("month-current-value-span");
+	const monthArray = [
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December",
+	];
+	const monthCurrentValueSpan = document.getElementById(
+		"month-current-value-span",
+	);
 	const vegetableUl = document.getElementById("vegetable-ul");
 	const monthCurrent = monthArray[dateCurrent.getMonth()];
 	const timeZoneToCountryObject = {
