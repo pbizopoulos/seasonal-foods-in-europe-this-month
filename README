@@ -1,0 +1,18 @@
+# Seasonal foods in Europe this month
+https://pbizopoulos.github.io/seasonal-foods-in-europe-this-month
+
+# Requirements
+POSIX Shell & Utilities
+Git
+Docker
+
+# Download
+git clone https://github.com/pbizopoulos/seasonal-foods-in-europe-this-month $HOME/github.com/pbizopoulos/seasonal-foods-in-europe-this-month
+cd $HOME/github.com/pbizopoulos/seasonal-foods-in-europe-this-month/
+
+# Development
+cd docs/ && make clean check all && cd ..
+
+# Staging
+cd docs/ && make STAGING=1
+
